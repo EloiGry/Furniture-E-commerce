@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .underlined {
+      @apply relative hover:text-gold after:absolute after:bottom-0 after:left-0 after:w-full after:scale-x-0 hover:after:scale-x-100 after:transition-all after:origin-center after:h-[1.5px] after:bg-gold after:duration-700;
+  }
+}
+
+.framerLogo {
+    overflow: visible;
+    stroke: burlywood;
+    stroke-width: 3;
+    stroke-linejoin: miter;
+    stroke-linecap: miter;
+  }
