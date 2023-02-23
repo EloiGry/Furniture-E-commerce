@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 import { signOut, useSession, signIn } from 'next-auth/react';
+import PopoverDecoration from "./Popover/PopoverDecoration";
+import PopoverLiving from "./Popover/PopoverLiving";
+import PopoverUser from "./Popover/PopoverUser";
 
 export default function Header() {
   const {data: session} = useSession()
@@ -66,24 +69,15 @@ export default function Header() {
         aria-label="Site Nav"
         className="hidden lg:flex lg:gap-8 lg:text-xs lg:font-bold lg:uppercase lg:tracking-wide lg:text-black"
       >
-        <a
-          href="/about"
-          className="block h-16 leading-[4rem] underlined">
-          About
-        </a>
+        <PopoverLiving/>
         
-        <a
-          href="/news"
-          className="block h-16 leading-[4rem] underlined"
-        >
-          News
-        </a>
+        <PopoverDecoration/>
 
         <a
-          href="/products"
+          href="/contact"
           className="block h-16 leading-[4rem] underlined"
         >
-          Products
+          à propos
         </a>
 
         <a
@@ -121,6 +115,23 @@ export default function Header() {
               <span className="sr-only">Cart</span>
             </a>
           </span>
+          <span>
+            <a
+              href="/like"
+              className="block p-6 underlined text-black"
+            >
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                fill="none" viewBox="0 0 24 24" 
+                stroke-width="2" 
+                stroke="currentColor" 
+                className="w-4 h-4">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+              </svg>
+              <span className="sr-only">Like</span>
+            </a>
+          </span>
+          {/* <PopoverUser/> */}
 
              {session ? (<span>
               <button className="block p-6 underlined text-black" onClick={() => signOut()}>
@@ -151,7 +162,7 @@ export default function Header() {
           </span>)}
           
 
-          <span className="hidden sm:block">
+          {/* <span className="hidden sm:block">
             <a
               href="/search"
               className="block p-6 underlined text-black"
@@ -173,7 +184,7 @@ export default function Header() {
 
               <span className="sr-only"> Search </span>
             </a>
-          </span>
+          </span> */}
         </div>
       </div>
     </div>
