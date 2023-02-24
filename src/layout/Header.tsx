@@ -1,11 +1,16 @@
 import { motion } from "framer-motion";
-import { signOut, useSession, signIn } from 'next-auth/react';
 import PopoverDecoration from "./Popover/PopoverDecoration";
 import PopoverLiving from "./Popover/PopoverLiving";
 import PopoverUser from "./Popover/PopoverUser";
+import { useState } from "react";
+import ModalCart from "@/components/Modal/ModalCart";
+import ModalSearch from "@/components/Modal/ModalSearch";
 
 export default function Header() {
-  const {data: session} = useSession()
+  let [isCartOpen, setIsCartOpen] = useState(false)
+  let [isSearchOpen, setIsSearchOpen] = useState(false)
+  let [isLikeOpen, setIsLikeOpen] = useState(false)
+
     const pathVariants = {
         hidden: {
             opacity: 0,
@@ -92,11 +97,8 @@ export default function Header() {
         <div
           className="flex items-center divide-x divide-gray-100 border-x border-gray-100"
         >
-          <span>
-            <a
-              href="/cart"
-              className="block p-6 underlined text-black"
-            >
+          <span onClick={() => setIsCartOpen(true)} className="block p-6 underlined text-black cursor-pointer">
+
               <svg
                 className="h-4 w-4"
                 fill="none"
@@ -111,9 +113,8 @@ export default function Header() {
                   d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
                 />
               </svg>
-
               <span className="sr-only">Cart</span>
-            </a>
+              {isCartOpen && <ModalCart isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen}/>}
           </span>
           <span>
             <a
@@ -123,7 +124,7 @@ export default function Header() {
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 fill="none" viewBox="0 0 24 24" 
-                stroke-width="2" 
+                strokeWidth="2" 
                 stroke="currentColor" 
                 className="w-4 h-4">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
@@ -131,17 +132,12 @@ export default function Header() {
               <span className="sr-only">Like</span>
             </a>
           </span>
-          {/* <PopoverUser/> */}
+          <PopoverUser/>
 
-             {session ? (<span>
-              <button className="block p-6 underlined text-black" onClick={() => signOut()}>
-              <img src={session.user.image} className="h-4 w-4" style={{borderRadius: "50%"}}/>
+             
 
-              <span className="sr-only"> Déconnexion </span> 
-              </button>
+          <span onClick={() => setIsSearchOpen(true)} className="hidden sm:block p-6 underlined text-black cursor-pointer">
 
-          </span>) : (<span>
-              <button className="block p-6 underlined text-black" onClick={() => signIn("auth0")}>
               <svg
                 className="h-4 w-4"
                 xmlns="http://www.w3.org/2000/svg"
@@ -150,41 +146,16 @@ export default function Header() {
                 stroke="currentColor"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                />
-              </svg>
-              <span className="sr-only"> Se connecter </span> 
-              </button>
-
-          </span>)}
-          
-
-          {/* <span className="hidden sm:block">
-            <a
-              href="/search"
-              className="block p-6 underlined text-black"
-            >
-              <svg
-                className="h-4 w-4"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                 />
               </svg>
 
               <span className="sr-only"> Search </span>
-            </a>
-          </span> */}
+              {isSearchOpen && <ModalSearch isSearchOpen={isSearchOpen} setIsSearchOpen={setIsSearchOpen}/>}
+          </span>
         </div>
       </div>
     </div>

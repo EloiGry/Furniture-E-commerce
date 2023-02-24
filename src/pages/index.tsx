@@ -1,7 +1,8 @@
-import { signOut, useSession, signIn } from 'next-auth/react';
 import prisma from '@/lib/prismadb';
 import type { GetServerSideProps } from "next";
 import Header from '@/layout/Header';
+import HeroSection from '@/components/Sections/HeroSections';
+
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const feed = await prisma.product.findMany();
@@ -12,12 +13,11 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
 
 const IndexPage = ({feed}) => { 
-  const { data: session} = useSession();
-  console.log("session" ,session);
   console.log("feed" ,feed);
     return (
       <>
         <Header/>
+        <HeroSection/>
       </>
     )
   };
