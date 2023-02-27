@@ -5,6 +5,7 @@ import PopoverUser from "./Popover/PopoverUser";
 import { useState } from "react";
 import ModalCart from "@/components/Modal/ModalCart";
 import ModalSearch from "@/components/Modal/ModalSearch";
+import ModalLike from "@/components/Modal/ModalLike";
 
 export default function Header() {
   let [isCartOpen, setIsCartOpen] = useState(false)
@@ -41,9 +42,9 @@ export default function Header() {
           stroke="currentColor"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
             d="M4 6h16M4 12h16M4 18h16"
           />
         </svg>
@@ -107,30 +108,27 @@ export default function Header() {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
                 />
               </svg>
               <span className="sr-only">Cart</span>
               {isCartOpen && <ModalCart isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen}/>}
           </span>
-          <span>
-            <a
-              href="/like"
-              className="block p-6 underlined text-black"
-            >
+          <span onClick={() => setIsLikeOpen(true)} className="block p-6 underlined text-black cursor-pointer">
+
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
                 fill="none" viewBox="0 0 24 24" 
                 strokeWidth="2" 
                 stroke="currentColor" 
                 className="w-4 h-4">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
               </svg>
               <span className="sr-only">Like</span>
-            </a>
+              {isLikeOpen && <ModalLike isLikeOpen={isLikeOpen} setIsLikeOpen={setIsLikeOpen}/>}
           </span>
           <PopoverUser/>
 

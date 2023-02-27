@@ -25,7 +25,7 @@ export const HeroCard = ({ id, imgUrl, index, active, handleClick, title }: AppP
         className="absolute h-full object-cover rounded-[24px] w-full"
       />
       {active !== id ? (
-      <h3 className="font-semibold sm:text-[26px] text-[18px] text-white absolute z-0 lg:bottom-20 lg:rotate-[-90deg] lg:origin-[0,0]">
+      <h3 className="font-TitleFont font-semibold sm:text-[26px] text-[18px] text-white absolute z-0 lg:bottom-20 lg:rotate-[-90deg] lg:origin-[0,0]">
         {title}
       </h3>
     ) : (
@@ -38,8 +38,8 @@ export const HeroCard = ({ id, imgUrl, index, active, handleClick, title }: AppP
           variants={characterAnimation}
         >
         <h2 
- className=" flex font-semibold sm:text-[32px] text-[24px] text-white">
-          Voir {title}
+ className="underlined justify-center items-center flex font-semibold sm:text-[32px] text-[24px] text-white">
+          {title}
         </h2>
       </motion.div>
       </motion.div>)}
