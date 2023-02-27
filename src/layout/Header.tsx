@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import PopoverDecoration from "./Popover/PopoverDecoration";
 import PopoverLiving from "./Popover/PopoverLiving";
-import PopoverUser from "./Popover/PopoverUser";
+import ModalUser from "@/components/Modal/ModalUser";
 import { useState } from "react";
 import ModalCart from "@/components/Modal/ModalCart";
 import ModalSearch from "@/components/Modal/ModalSearch";
@@ -11,6 +11,7 @@ export default function Header() {
   let [isCartOpen, setIsCartOpen] = useState(false)
   let [isSearchOpen, setIsSearchOpen] = useState(false)
   let [isLikeOpen, setIsLikeOpen] = useState(false)
+  let [isUserOpen, setIsUserOpen] = useState(false)
 
     const pathVariants = {
         hidden: {
@@ -130,7 +131,25 @@ export default function Header() {
               <span className="sr-only">Like</span>
               {isLikeOpen && <ModalLike isLikeOpen={isLikeOpen} setIsLikeOpen={setIsLikeOpen}/>}
           </span>
-          <PopoverUser/>
+          <span onClick={() => setIsUserOpen(true)} className="block p-6 underlined text-black cursor-pointer">
+
+          <svg
+                className="h-4 w-4"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                />
+              </svg>
+              <span className="sr-only"> Se connecter </span> 
+              {isUserOpen && <ModalUser isUserOpen={isUserOpen} setIsUserOpen={setIsUserOpen}/>}
+          </span>
 
              
 
