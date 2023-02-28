@@ -3,7 +3,7 @@ import type { GetServerSideProps } from "next";
 import Header from '@/layout/Header';
 import HeroSection from '@/components/Sections/HeroSections';
 import { useAppStore } from '@/lib/store';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import MasonryGrid from '@/components/MasonryGrid';
 import DisplayPrice from '@/utils/DisplayPrice';
 
@@ -17,14 +17,21 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
 const IndexPage = ({feed}) => { 
   // const [mProducts, setMProducts] = useState<Product[]>([])
+  const [loaded, setLoaded] = useState(false)
+
+    
   const { products, fetchProducts, cart, addToCart } = useAppStore()
   console.log("cart" ,cart);
+
+  useEffect(() => {
+    setLoaded(true);
+}, [products]);
 
   useEffect(() => {
       fetchProducts(feed)
   }, [feed])
 
-  if (!products) {
+  if (!products || !loaded) {
     return (
       <p> Loading... </p>
     )
