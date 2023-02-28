@@ -1,6 +1,8 @@
 import { StateCreator } from "zustand";
 import { Product } from "./createProductSlice";
 
+
+
 export interface CartSlice {
     cart: Product[];
     addToCart: (product: Product) => void;
