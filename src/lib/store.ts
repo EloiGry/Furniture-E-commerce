@@ -1,12 +1,14 @@
 import { create } from 'zustand'
 import { CartSlice, createCartSlice } from '@/slices/createCartSlice'
 import { createProductSlice, ProductSlice } from '@/slices/createProductSlice'
+import { LikeSlice, createLikeSlice } from '@/slices/createLikeSlice'
 import { persist } from 'zustand/middleware'
 
 
-type StoreState = ProductSlice & CartSlice
+type StoreState = ProductSlice & CartSlice & LikeSlice
 
 export const useAppStore = create<StoreState>()(persist((...a) => ({
     ...createProductSlice(...a),
     ...createCartSlice(...a),
-}), ({name: "cart-storage"})))
+    ...createLikeSlice(...a),
+}), ({name: "storage"})))

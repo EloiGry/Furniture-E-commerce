@@ -6,6 +6,7 @@ import { useAppStore } from '@/lib/store';
 import { useEffect, useState } from 'react';
 import MasonryGrid from '@/components/MasonryGrid';
 import DisplayPrice from '@/utils/DisplayPrice';
+import Loading from '@/components/Loading';
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const feed = await prisma.product.findMany();
@@ -16,10 +17,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
 
 const IndexPage = ({feed}) => { 
-  // const [mProducts, setMProducts] = useState<Product[]>([])
   const [loaded, setLoaded] = useState(false)
 
-    
   const { products, fetchProducts, cart, addToCart } = useAppStore()
   console.log("cart" ,cart);
 
@@ -33,7 +32,7 @@ const IndexPage = ({feed}) => {
 
   if (!products || !loaded) {
     return (
-      <p> Loading... </p>
+      <Loading/>
     )
   }
 
