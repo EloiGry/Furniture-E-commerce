@@ -1,9 +1,11 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
-import { RightToLeft, Opacity } from './Transition'
+import { RightToLeft, Opacity } from '../Transition'
+import Like from './Like'
+import { useAppStore } from '@/lib/store'
 
-export default function ModalLike({isLikeOpen, setIsLikeOpen}) {
-  
+export default function ModalLike({ isLikeOpen, setIsLikeOpen }) {
+  const { like } = useAppStore()
 
   function closeModal() {
     setIsLikeOpen(false)
@@ -32,16 +34,9 @@ export default function ModalLike({isLikeOpen, setIsLikeOpen}) {
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
                   >
-                    Payment successful
+                    Mes coups de coeurs
                   </Dialog.Title>
-                  <div className="mt-2">
-                    <p className="text-sm text-gray-500">
-                      Your payment has been successfully submitted. We’ve sent
-                      you an email with all of the details of your order.
-                     
-                    </p>
-                   
-                  </div>
+                  <Like products={like}/>
 
                   <div className="mt-4">
                     <button

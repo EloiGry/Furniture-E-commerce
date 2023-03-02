@@ -1,14 +1,5 @@
 import { StateCreator } from "zustand";
-
-export interface Product {
-    id: number;
-    name: string;
-    description: string;
-    image: string;
-    price: number;
-    category: string;
-    quantity?: number;
-}
+import { Product } from "@/types/Product";
 
 export interface ProductSlice {
     products: Product[];

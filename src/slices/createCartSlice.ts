@@ -1,5 +1,5 @@
 import { StateCreator } from "zustand";
-import { Product } from "./createProductSlice";
+import { Product } from "@/types/Product";
 
 
 

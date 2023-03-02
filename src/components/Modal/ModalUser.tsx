@@ -4,7 +4,7 @@ import { signOut, useSession, signIn } from 'next-auth/react';
 import { RightToLeft, Opacity } from './Transition'
 
 const connected = [{name: "Déconnexion", icon: EditActiveIcon, onClick: signOut}, {name: "Mes commandes", icon: EditActiveIcon, onClick: signOut},{name: "Editer profil", icon: EditActiveIcon, onClick: signOut}]
-const disconnected = [{name: "Se connecter", icon: EditActiveIcon, onClick: signIn},{name: "S'inscrire", icon: EditActiveIcon, onClick: signIn}]
+const disconnected = [{name: "Je souhaite me connecter à mon compte", icon: EditActiveIcon, onClick: signIn},{name: "Je souhaite me créer un compte utilisateur", icon: EditActiveIcon, onClick: signIn}]
 
 export default function ModalUser({isUserOpen, setIsUserOpen}) {
     const {data : session} = useSession()
@@ -31,8 +31,18 @@ export default function ModalUser({isUserOpen, setIsUserOpen}) {
               <Transition.Child
                 as={Fragment}
                 {...RightToLeft}
+                
               >
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden bg-white p-6 text-left align-middle shadow-xl transition-all">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className="w-32 h-32">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                  </svg>
+                  <Dialog.Title
+                    as="h3"
+                    className="text-lg font-medium leading-6 text-gray-900"
+                  >
+                    Utilisateur
+                  </Dialog.Title>
                 {session ? (<>
               {connected.map(el => {
                 return (
@@ -61,7 +71,7 @@ export default function ModalUser({isUserOpen, setIsUserOpen}) {
 
                   <button
                   onClick={() => el.onClick("auth0")}
-                    className="flex w-full items-center rounded-md px-2 py-2 text-sm"
+                    className="flex w-full items-center rounded-md px-2 py-2"
                   >
                       <EditActiveIcon
                         className="mr-2 h-5 w-5"

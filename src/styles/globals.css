@@ -33,4 +33,12 @@
     background: grey;
     margin-bottom: 30px;
   }
+
+  .grid-cart {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr 2fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 0px;
+    }
   
