@@ -9,6 +9,7 @@ import DisplayPrice from '@/utils/DisplayPrice';
 import Loading from '@/components/Loading';
 import Newslatter from '@/components/Newslatter';
 import Testimonials from '@/components/Testimonials';
+import Stats from '@/components/Stats';
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const feed = await prisma.product.findMany();
@@ -42,6 +43,7 @@ const IndexPage = ({feed}) => {
       <>
         <Header/>
         <HeroSection/>
+        <Stats/>
         <Newslatter/>
         <Testimonials/>
         <MasonryGrid >
