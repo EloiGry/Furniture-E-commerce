@@ -18,12 +18,27 @@ const HeroSection = () => {
   return (
     <div className="flex flex-col md:flex-row items-center h-[90vh] mx-[20px] mb-10 md:mb-14">
               
-    <div className="md:w-2/5 flex flex-col justify-around h-full bg-[url('../../public/bg.svg')] bg-center bg-cover bg-no-repeat">
-        <div>
-        <h1 className="text-2xl font-bold m-2 md:p-8"> Des espaces de vie pour tous les logements </h1>
+    <div className="md:w-2/5 flex flex-col justify-center gap-8 h-full bg-[url('../../public/bg.svg')] bg-center bg-cover bg-no-repeat">
 
-        <h3 className="text-xl mb-2 ml-2 md:pl-8 md:pb-8" > N'hésitez pas à contacter nos conseillers </h3>
-        </div>
+        <h1 className="text-2xl font-bold mx-4"> Des espaces de vie pour tous les logements </h1>
+
+        <button className="flex items-center gap-2 mx-4 bg-black text-white hover:opacity-90 rounded-md px-6 py-2" > 
+          <span> Prendre rendez-vous avec un conseiller </span>
+          <svg
+            className="h-5 w-5"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="3"
+            d="M17 8l4 4m0 0l-4 4m4-4H3"
+          />
+          </svg>
+        </button>
 
     </div>
     <div className="flex lg:flex-row flex-col min-h-[70vh] gap-5 md:w-3/5 md:float-right w-full">

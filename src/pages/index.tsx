@@ -7,6 +7,8 @@ import { useEffect, useState } from 'react';
 import MasonryGrid from '@/components/MasonryGrid';
 import DisplayPrice from '@/utils/DisplayPrice';
 import Loading from '@/components/Loading';
+import Newslatter from '@/components/Newslatter';
+import Testimonials from '@/components/Testimonials';
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const feed = await prisma.product.findMany();
@@ -40,6 +42,8 @@ const IndexPage = ({feed}) => {
       <>
         <Header/>
         <HeroSection/>
+        <Newslatter/>
+        <Testimonials/>
         <MasonryGrid >
         {products?.map(product => {
           return (
