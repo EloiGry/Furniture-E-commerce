@@ -29,7 +29,7 @@ export default function Header() {
   }
 
   return (
-    <header aria-label="Site Header" className="border-b border-gray-100">
+    <header aria-label="Site Header" className="border-b border-gray-100 fixed z-50 bg-white w-full">
       <div
         className="mx-auto flex h-16 max-w-screen-2xl items-center justify-between sm:px-6 lg:px-8"
       >

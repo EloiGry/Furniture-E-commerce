@@ -1,5 +1,8 @@
+import Container from "./Container";
+
 const Testimonials = () => {
     return (
+        <Container>
         <section className="my-8">
             <div className="container mx-auto flex flex-col items-center pb-6 mb-4 md:p-10 md:px-12">
                 <h2 className="text-4xl font-semibold leading-none text-center">Ceux qu'on pense de nous </h2>
@@ -37,6 +40,7 @@ const Testimonials = () => {
                 </div>
             </div>
         </section>
+        </Container>
     );
 };
 

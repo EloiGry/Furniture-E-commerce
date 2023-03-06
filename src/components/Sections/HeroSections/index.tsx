@@ -16,7 +16,7 @@ const HeroSection = () => {
     const arrayCards: MyType[] = [{imgUrl: hero1, id: "1", title: "Salons"}, {imgUrl: hero2, id: "2", title: "Salles de bains"}, {imgUrl: hero3, id: "3", title: "Cuisines"}]
     const [active, setActive] = useState('2');
   return (
-    <div className="flex flex-col md:flex-row items-center h-[90vh] mx-[20px] mb-10 md:mb-14">
+    <div className="flex flex-col md:flex-row items-center h-[90vh] mx-[20px] mb-10 md:mb-14 pt-[20vh]">
               
     <div className="md:w-2/5 flex flex-col justify-center gap-8 h-full bg-[url('../../public/bg.svg')] bg-center bg-cover bg-no-repeat">
 
