@@ -5,7 +5,8 @@ import { useAppStore } from "@/lib/store";
 const Like = ({products}) => {
     const {removeFromLike, addToCart} = useAppStore()
     return (
-        <div className="flex flex-col justify-start gap-4">
+        <div className="flex flex-col justify-start gap-4 pt-[5vh]">
+            <h4> Mes coups de coeurs </h4>
             {products.length < 1 && <p className="text-gray-500"> Vous n'avez pas encore de produits coup de coeurs </p>}
             {products.map((product: Product) => {
                 return (

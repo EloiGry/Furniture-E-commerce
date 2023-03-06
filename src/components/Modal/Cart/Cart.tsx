@@ -5,7 +5,8 @@ import { useAppStore } from "@/lib/store";
 const Cart = ({products}) => {
     const {updateQuantity, removeFromCart} = useAppStore()
     return (
-        <div className="flex flex-col justify-start gap-4">
+        <div className="flex flex-col justify-start gap-4 pt-[5vh]">
+            <h4> Mon Panier </h4>
             {products.length < 1 && <p className="text-gray-500"> Vous n'avez aucuns produits dans votre panier </p>}
             {products.map((product: Product) => {
                 return (

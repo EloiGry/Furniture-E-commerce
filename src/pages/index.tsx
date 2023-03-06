@@ -45,7 +45,6 @@ const IndexPage = ({feed}) => {
 
     return (
       <>
-        <Header/>
         <HeroSection/>
         <Stats/>
         <Newslatter/>
@@ -53,7 +52,6 @@ const IndexPage = ({feed}) => {
          <Salons/>
          <Cuisine/>
          <SalleDeBain/>
-         <Footer/>
       </>
     )
   };
