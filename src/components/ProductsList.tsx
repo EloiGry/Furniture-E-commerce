@@ -3,6 +3,7 @@ import MasonryGrid from "./MasonryGrid";
 import DisplayPrice from "@/utils/DisplayPrice";
 import Container from "./Container";
 import { useAppStore } from "@/lib/store";
+import Router from "next/router";
 
 interface List {
     products: Product[],
@@ -10,6 +11,7 @@ interface List {
 }
 
 const ProductsList = ({products, title}: List) => {
+    
     const {addToCart, addToLike} = useAppStore()
     return (
         <Container>
@@ -56,7 +58,7 @@ const ProductsList = ({products, title}: List) => {
                             </svg>
                         </button> 
                     </div> 
-                    <button className="bg-gold py-1 px-10 m-4 rounded-sm font-semibold hover:bg-lightgold"> Voir </button>
+                    <button onClick={() => Router.push(`/products/${product.id}`)} className="bg-gold py-1 px-10 m-4 rounded-sm font-semibold hover:bg-lightgold"> Voir </button>
                   </div> 
                  </div>
               </div>
