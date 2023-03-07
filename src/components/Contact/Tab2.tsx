@@ -3,14 +3,13 @@ const Tab2 = () => {
         <section className="bg-gray-100">
   <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
     <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
-      <div className="lg:col-span-2 lg:py-12">
+    <div className="lg:col-span-2 lg:py-12">
         <p className="max-w-xl text-lg">
-          At the same time, the fact that we are wholly owned and totally
-          independent from manufacturer and other group control gives you
-          confidence that we will only recommend what is right for you.
+          N'hésitez pas à nous contacter si vous souhaitez obtenir des précisions.
         </p>
 
         <div className="mt-8">
+            <h3> Siège social :</h3>
           <a href="" className="text-2xl font-bold text-gold">
             01 51 47 54 45
           </a>
@@ -24,10 +23,10 @@ const Tab2 = () => {
       <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
         <form action="" className="space-y-4">
           <div>
-            <label className="sr-only" htmlFor="name">Name</label>
+            <label className="sr-only" htmlFor="name">Nom</label>
             <input
               className="w-full rounded-lg border-gray-200 p-3 text-sm"
-              placeholder="Name"
+              placeholder="Nom"
               type="text"
               id="name"
             />
@@ -38,76 +37,20 @@ const Tab2 = () => {
               <label className="sr-only" htmlFor="email">Email</label>
               <input
                 className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                placeholder="Email address"
+                placeholder="Email"
                 type="email"
                 id="email"
               />
             </div>
 
             <div>
-              <label className="sr-only" htmlFor="phone">Phone</label>
+              <label className="sr-only" htmlFor="phone">Téléphone</label>
               <input
                 className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                placeholder="Phone Number"
+                placeholder="Téléphone"
                 type="tel"
                 id="phone"
               />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 gap-4 text-center sm:grid-cols-3">
-            <div>
-              <input
-                className="peer sr-only"
-                id="option1"
-                type="radio"
-                tabIndex={-1}
-                name="option"
-              />
-
-              <label
-                htmlFor="option1"
-                className="block w-full rounded-lg border border-gray-200 p-3 hover:border-black peer-checked:border-black peer-checked:bg-black peer-checked:text-white"
-                tabIndex={0}
-              >
-                <span className="text-sm font-medium"> Option 1 </span>
-              </label>
-            </div>
-
-            <div>
-              <input
-                className="peer sr-only"
-                id="option2"
-                type="radio"
-                tabIndex={-1}
-                name="option"
-              />
-
-              <label
-                htmlFor="option2"
-                className="block w-full rounded-lg border border-gray-200 p-3 hover:border-black peer-checked:border-black peer-checked:bg-black peer-checked:text-white"
-                tabIndex={0}
-              >
-                <span className="text-sm font-medium"> Option 2 </span>
-              </label>
-            </div>
-
-            <div>
-              <input
-                className="peer sr-only"
-                id="option3"
-                type="radio"
-                tabIndex={-1}
-                name="option"
-              />
-
-              <label
-                htmlFor="option3"
-                className="block w-full rounded-lg border border-gray-200 p-3 hover:border-black peer-checked:border-black peer-checked:bg-black peer-checked:text-white"
-                tabIndex={0}
-              >
-                <span className="text-sm font-medium"> Option 3 </span>
-              </label>
             </div>
           </div>
 
@@ -125,9 +68,9 @@ const Tab2 = () => {
           <div className="mt-4">
             <button
               type="submit"
-              className="inline-block w-full rounded-lg bg-black px-5 py-3 font-medium text-white sm:w-auto"
+              className="hover:bg-opacity-80 inline-block w-full rounded-lg bg-black px-5 py-3 font-medium text-white sm:w-auto"
             >
-              Send Enquiry
+              Envoyer
             </button>
           </div>
         </form>

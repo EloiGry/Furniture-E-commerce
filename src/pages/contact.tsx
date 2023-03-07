@@ -12,7 +12,7 @@ const Contact = () => {
         <Tab.List className="flex space-x-1 rounded-xl bg-black/20 p-1">
             <Tab className={({ selected }) =>
                     classNames(
-                    'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-black',
+                    'w-full rounded-lg py-2.5 text-sm leading-5 text-black font-semibold',
                     'ring-white ring-opacity-60 ring-offset-2 focus:outline-none',
                     selected
                         ? 'bg-white shadow'
@@ -21,7 +21,7 @@ const Contact = () => {
                 }>Prendre rendez vous avec un conseiller </Tab>
             <Tab className={({ selected }) =>
                     classNames(
-                    'w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-black',
+                    'w-full rounded-lg py-2.5 text-sm leading-5 text-black font-semibold',
                     'ring-white ring-opacity-60 ring-offset-2 focus:outline-none',
                     selected
                         ? 'bg-white shadow'

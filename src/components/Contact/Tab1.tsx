@@ -1,3 +1,10 @@
+// import Calendar from "../Calendar";
+import dynamic from "next/dynamic"
+const Calendar = dynamic(
+  () => import('../Calendar'),
+  { ssr: false }
+)
+
 const Tab1 = () => {
     return (
 <section className="bg-gray-100">
@@ -110,6 +117,8 @@ const Tab1 = () => {
               </label>
             </div>
           </div>
+          <h4> Quand est-ce que vous souhaitez prendre rendez-vous ? </h4>
+          <Calendar/>
 
           <div>
             <label className="sr-only" htmlFor="message">Message</label>
