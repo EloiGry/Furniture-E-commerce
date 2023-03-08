@@ -12,7 +12,7 @@ const Product = () => {
     const router = useRouter()
     const {products, addToCart, addToLike} = useAppStore()
     const product = products.find(el => el.id === Number(router.query.id))
-    console.log(product);
+
     
     
     return (

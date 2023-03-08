@@ -9,19 +9,19 @@ const solutions = [
   {
     name: 'Salons',
     description: 'Venez découvrir nos salons',
-    href: '##',
+    href: '/categories/salon',
     icon: hero1,
   },
   {
     name: 'Salles de bain',
     description: 'Venez découvrir nos salles de bain',
-    href: '##',
+    href: '/categories/salledebain',
     icon: hero2,
   },
   {
     name: 'Cuisine',
     description: 'Venez découvrir nos cuisines',
-    href: '##',
+    href: 'cuisine',
     icon: hero3,
   },
 ]
