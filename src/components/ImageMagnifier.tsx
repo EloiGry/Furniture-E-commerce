@@ -25,9 +25,10 @@ export default function ImageMagnifier({
           height: height,
           width: width
         }}
-        className="hover:scale-110 transition-all duration-700 ease-in-out"
+        className="w-full h-full "
       >
         <img
+        className="w-full h-full object-scale-down overflow-hidden"
           src={src}
           style={{ height: height, width: width }}
           onMouseEnter={(e) => {
