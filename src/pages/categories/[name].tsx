@@ -34,7 +34,15 @@ const TitleCategory = (string: string | string[]) => {
         break;
         case "salledebain" : title="Nos Salles de Bains";
         break;
-        case "cuisine" : title="Nos Cuisines"
+        case "cuisine" : title="Nos Cuisines";
+        break;
+        case "chaise" : title="Nos Chaises";
+        break;
+        case "lampe" : title="Nos Lampes";
+        break;
+        case "plante" : title="Nos Plantes";
+        break;
+        case "table" : title="Nos Tables";
         break;
         default: title="Nos Collections" 
     }  
