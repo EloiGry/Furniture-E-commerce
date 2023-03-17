@@ -6,8 +6,10 @@ import { useState } from "react";
 import ModalCart from "@/components/Modal/Cart/ModalCart";
 import ModalSearch from "@/components/Modal/ModalSearch";
 import ModalLike from "@/components/Modal/Like/ModalLike";
+import { useAppStore } from "@/lib/store";
 
 export default function Header() {
+  const {cart} = useAppStore()
   let [isCartOpen, setIsCartOpen] = useState(false)
   let [isSearchOpen, setIsSearchOpen] = useState(false)
   let [isLikeOpen, setIsLikeOpen] = useState(false)
@@ -99,8 +101,10 @@ export default function Header() {
             <div
               className="flex items-center divide-x divide-gray-100 border-x border-gray-100"
             >
-              <span onClick={() => setIsCartOpen(true)} className="block p-6 underlined text-black cursor-pointer">
-
+              <span onClick={() => setIsCartOpen(true)} className="relative block p-6 underlined text-black cursor-pointer">
+                <div className="bg-black text-white rounded-full absolute right-3 top-3 w-4 h-4 flex items-center justify-center font-TitleFont text-xs">
+                <span> {cart.length} </span>
+                </div>
                 <svg
                   className="h-4 w-4"
                   fill="none"
