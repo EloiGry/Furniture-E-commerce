@@ -1,14 +1,14 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 import { signOut, useSession, signIn } from 'next-auth/react';
-import { RightToLeft, Opacity } from './Transition'
+import { RightToLeft, Opacity } from '../Transition'
 
-const connected = [{name: "Déconnexion", icon: EditActiveIcon, onClick: signOut}, {name: "Mes commandes", icon: EditActiveIcon, onClick: signOut},{name: "Editer profil", icon: EditActiveIcon, onClick: signOut}]
-const disconnected = [{name: "Je souhaite me connecter à mon compte", icon: EditActiveIcon, onClick: signIn},{name: "Je souhaite me créer un compte utilisateur", icon: EditActiveIcon, onClick: signIn}]
+const connected = [{ name: "Déconnexion", icon: EditActiveIcon, onClick: signOut }, { name: "Mes commandes", icon: EditActiveIcon, onClick: signOut }, { name: "Editer profil", icon: EditActiveIcon, onClick: signOut }]
+const disconnected = [{ name: "Je souhaite me connecter à mon compte", icon: EditActiveIcon, onClick: signIn }, { name: "Je souhaite me créer un compte utilisateur", icon: EditActiveIcon, onClick: signIn }]
 
-export default function ModalUser({isUserOpen, setIsUserOpen}) {
-    const {data : session} = useSession()
-  
+export default function ModalUser({ isUserOpen, setIsUserOpen }) {
+  const { data: session } = useSession()
+
 
   function closeModal() {
     setIsUserOpen(false)
@@ -31,7 +31,7 @@ export default function ModalUser({isUserOpen, setIsUserOpen}) {
               <Transition.Child
                 as={Fragment}
                 {...RightToLeft}
-                
+
               >
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden bg-white p-6 text-left align-middle shadow-xl transition-all">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className="w-32 h-32">
@@ -43,49 +43,49 @@ export default function ModalUser({isUserOpen, setIsUserOpen}) {
                   >
                     Utilisateur
                   </Dialog.Title>
-                {session ? (<>
-              {connected.map(el => {
-                return (
-                  <div key={el.name}>
+                  {session ? (<>
+                    {connected.map(el => {
+                      return (
+                        <div key={el.name}>
 
-                  <button
-                  onClick={() => el.onClick()}
-                    className="group flex w-full items-center rounded-md px-2 py-2 text-sm"
-                  >
-                    
-                      <EditActiveIcon
-                        className="mr-2 h-5 w-5"
-                        aria-hidden="true"
-                      />
-                    {el.name}
-                  </button>
-              </div>
-                )
-              })}
-                
-              
-              </>) : (<>
-              {disconnected.map(el => {
-                return (
-                  <div key={el.name}>
+                          <button
+                            onClick={() => el.onClick()}
+                            className="group flex w-full items-center rounded-md px-2 py-2 text-sm"
+                          >
 
-                  <button
-                  onClick={() => el.onClick("auth0")}
-                    className="flex w-full items-center rounded-md px-2 py-2"
-                  >
-                      <EditActiveIcon
-                        className="mr-2 h-5 w-5"
-                        aria-hidden="true"
-                      />
-                    {el.name}
-                  </button>
-              </div>
-                )
-              })}
-                
-              
-              </>
-              )}
+                            <EditActiveIcon
+                              className="mr-2 h-5 w-5"
+                              aria-hidden="true"
+                            />
+                            {el.name}
+                          </button>
+                        </div>
+                      )
+                    })}
+
+
+                  </>) : (<>
+                    {disconnected.map(el => {
+                      return (
+                        <div key={el.name}>
+
+                          <button
+                            onClick={() => el.onClick("auth0")}
+                            className="flex w-full items-center rounded-md px-2 py-2"
+                          >
+                            <EditActiveIcon
+                              className="mr-2 h-5 w-5"
+                              aria-hidden="true"
+                            />
+                            {el.name}
+                          </button>
+                        </div>
+                      )
+                    })}
+
+
+                  </>
+                  )}
 
                   <div className="mt-4">
                     <button
@@ -107,19 +107,19 @@ export default function ModalUser({isUserOpen, setIsUserOpen}) {
 }
 
 function EditActiveIcon(props) {
-    return (
-      <svg
-        {...props}
-        viewBox="0 0 20 20"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M4 13V16H7L16 7L13 4L4 13Z"
-          fill="grey"
-          stroke="grey"
-          strokeWidth="2"
-        />
-      </svg>
-    )
-  }
+  return (
+    <svg
+      {...props}
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M4 13V16H7L16 7L13 4L4 13Z"
+        fill="grey"
+        stroke="grey"
+        strokeWidth="2"
+      />
+    </svg>
+  )
+}

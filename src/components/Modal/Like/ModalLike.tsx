@@ -24,18 +24,18 @@ export default function ModalLike({ isLikeOpen, setIsLikeOpen }) {
           </Transition.Child>
 
           <div className="fixed inset-y-0 right-0 overflow-y-auto">
-            <div className="flex min-h-full items-right justify-right text-center overflow-x-hidden">
+            <div className="flex h-full items-right justify-right text-center overflow-x-hidden">
               <Transition.Child
                 as={Fragment}
                 {...RightToLeft}
               >
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden bg-white p-6 text-left align-middle shadow-xl transition-all">
-                  <Dialog.Title
+                  {/* <Dialog.Title
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
                   >
                     Mes coups de coeurs
-                  </Dialog.Title>
+                  </Dialog.Title> */}
                   <Like products={like}/>
 
                   <div className="mt-4">
@@ -44,7 +44,7 @@ export default function ModalLike({ isLikeOpen, setIsLikeOpen }) {
                       className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       onClick={closeModal}
                     >
-                      Got it, thanks!
+                      C'est d'accord !
                     </button>
                   </div>
                 </Dialog.Panel>

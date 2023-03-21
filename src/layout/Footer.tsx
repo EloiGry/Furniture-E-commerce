@@ -33,16 +33,16 @@ const Footer = () => {
 				<p className="pb-1 text-lg font-bold">Décorations</p>
 				<ul>
 					<li>
-						<a href="/chaise" className="hover:text-gold">Chaises</a>
+						<a href="/categories/chaise" className="hover:text-gold">Chaises</a>
 					</li>
 					<li>
-						<a href="/lampe" className="hover:text-gold">Lampes</a>
+						<a href="/categories/lampe" className="hover:text-gold">Lampes</a>
 					</li>
 					<li>
-						<a href="/plante" className="hover:text-gold">Plantes</a>
+						<a href="/categories/plante" className="hover:text-gold">Plantes</a>
 					</li>
 					<li>
-						<a href="/table" className="hover:text-gold">Tables</a>
+						<a href="/categories/table" className="hover:text-gold">Tables</a>
 					</li>
 				</ul>
 			</div>
