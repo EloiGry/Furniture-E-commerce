@@ -8,6 +8,8 @@ const disconnected = [{ name: "Je souhaite me connecter à mon compte", icon: Ed
 
 export default function ModalUser({ isUserOpen, setIsUserOpen }) {
   const { data: session } = useSession()
+  console.log("session" ,session);
+  
 
 
   function closeModal() {
@@ -26,35 +28,32 @@ export default function ModalUser({ isUserOpen, setIsUserOpen }) {
             <div className="fixed inset-0 bg-black bg-opacity-25" />
           </Transition.Child>
 
-          <div className="fixed inset-y-0 right-0 overflow-y-auto">
+          <div className="fixed inset-y-0 right-0 overflow-y-auto w-full md:w-[500px]">
             <div className="flex min-h-full items-right justify-right text-center overflow-x-hidden">
               <Transition.Child
                 as={Fragment}
-                {...RightToLeft}
+                // {...RightToLeft}
 
               >
-                <Dialog.Panel className="w-full max-w-md transform overflow-hidden bg-white p-6 text-left align-middle shadow-xl transition-all">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className="w-32 h-32">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-                  </svg>
-                  <Dialog.Title
-                    as="h3"
-                    className="text-lg font-medium leading-6 text-gray-900"
-                  >
-                    Utilisateur
-                  </Dialog.Title>
+                <Dialog.Panel className="flex flex-col justify-evenly items-center pt-[12vh] w-full md:w-[500px] transform overflow-hidden bg-white p-6 text-left align-middle shadow-xl transition-all">
+                  <div className='flex justify-center mb-4'>
+                    <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor" className="w-32 h-32">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                    </svg>
+                  </div>
+                  <div className="w-full">
                   {session ? (<>
                     {connected.map(el => {
                       return (
-                        <div key={el.name}>
+                        <div key={el.name} >
 
                           <button
                             onClick={() => el.onClick()}
-                            className="group flex w-full items-center rounded-md px-2 py-2 text-sm"
+                            className="flex w-full items-center rounded-md px-2 py-2 border-2 border-black bg-black text-white my-4 hover:bg-white hover:text-black duration-300 transition-all"
                           >
 
                             <EditActiveIcon
-                              className="mr-2 h-5 w-5"
+                              className="mr-4 h-5 w-5"
                               aria-hidden="true"
                             />
                             {el.name}
@@ -71,7 +70,7 @@ export default function ModalUser({ isUserOpen, setIsUserOpen }) {
 
                           <button
                             onClick={() => el.onClick("auth0")}
-                            className="flex w-full items-center rounded-md px-2 py-2"
+                            className="flex w-full items-center rounded-md px-2 py-2 border-2 border-black bg-black text-white my-4 hover:bg-white hover:text-black duration-300 transition-all"
                           >
                             <EditActiveIcon
                               className="mr-2 h-5 w-5"
@@ -86,15 +85,6 @@ export default function ModalUser({ isUserOpen, setIsUserOpen }) {
 
                   </>
                   )}
-
-                  <div className="mt-4">
-                    <button
-                      type="button"
-                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                      onClick={closeModal}
-                    >
-                      Got it, thanks!
-                    </button>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>
@@ -106,20 +96,11 @@ export default function ModalUser({ isUserOpen, setIsUserOpen }) {
   )
 }
 
-function EditActiveIcon(props) {
+function EditActiveIcon(props: any) {
   return (
-    <svg
-      {...props}
-      viewBox="0 0 20 20"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M4 13V16H7L16 7L13 4L4 13Z"
-        fill="grey"
-        stroke="grey"
-        strokeWidth="2"
-      />
-    </svg>
+    <svg {...props} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+</svg>
+
   )
 }

@@ -13,6 +13,9 @@ const customJestConfig = {
 
   testEnvironment: 'jest-environment-jsdom',
   setupFilesAfterEnv: ["@testing-library/jest-dom/extend-expect"],
+  moduleNameMapper: {
+    "\\.(css|sass|scss)$": "<rootDir>/mocks/cssMock.js"
+  },
 }
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async

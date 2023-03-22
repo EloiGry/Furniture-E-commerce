@@ -4,6 +4,9 @@ import { useAppStore } from "@/lib/store";
 
 const Cart = ({products}) => {
     const {updateQuantity, removeFromCart} = useAppStore()
+    const sum = products.reduce((total: number, obj: Product) => obj.price * obj.quantity + total, 0);
+    
+
     return (
         <div className="flex flex-col justify-start gap-4 pt-[10vh]">
             <h4> Mon Panier </h4>
@@ -27,6 +30,7 @@ const Cart = ({products}) => {
                     </div>
                 )
             })}
+            <p> Total : {DisplayPrice(sum)}</p>
         </div>
     );
 };

@@ -24,7 +24,6 @@ const IndexPage = ({feed}) => {
   const [loaded, setLoaded] = useState(false)
 
   const { products, fetchProducts, cart} = useAppStore()
-  console.log("cart" ,cart);
 
   useEffect(() => {
     setLoaded(true);

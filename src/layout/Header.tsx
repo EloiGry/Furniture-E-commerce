@@ -2,18 +2,26 @@ import { motion } from "framer-motion";
 import PopoverDecoration from "./Popover/PopoverDecoration";
 import PopoverLiving from "./Popover/PopoverLiving";
 import ModalUser from "@/components/Modal/User/ModalUser";
-import { useState } from "react";
+import { useState, useRef } from 'react';
+import {useOutsideClick} from '@/utils/usOutsideClick';
 import ModalCart from "@/components/Modal/Cart/ModalCart";
 import ModalSearch from "@/components/Modal/Search/ModalSearch";
 import ModalLike from "@/components/Modal/Like/ModalLike";
 import { useAppStore } from "@/lib/store";
+import { useSession } from "next-auth/react";
+import MobileHeader from "./MobileHeader";
 
 export default function Header() {
   const { cart } = useAppStore()
+  const {data : session} = useSession()
   let [isCartOpen, setIsCartOpen] = useState(false)
   let [isSearchOpen, setIsSearchOpen] = useState(false)
   let [isLikeOpen, setIsLikeOpen] = useState(false)
   let [isUserOpen, setIsUserOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const ref = useRef()
+  useOutsideClick(ref, () => isMenuOpen && setIsMenuOpen(false));
 
   const pathVariants = {
     hidden: {
@@ -36,22 +44,33 @@ export default function Header() {
         className="mx-auto flex h-16 max-w-screen-2xl items-center justify-between sm:px-6 lg:px-8"
       >
         <div className="flex items-center gap-4">
-          <button type="button" className="p-2 lg:hidden">
-            <svg
-              className="h-6 w-6"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
+        {!isMenuOpen ? (<button type="button" className="p-2 lg:hidden" onClick={() => setIsMenuOpen(true)}>
+              <svg
+                className="h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>) : (
+
+            <button type="button" className="p-2 lg:hidden" onClick={() => setIsMenuOpen(false)}>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </button>
+          )}
+          {
+            isMenuOpen && <MobileHeader/>
+          }
+
 
           <a href="#" className="flex">
             <motion.svg className="framerLogo" initial='hidden' animate='visible' fill="none" version="1.1" xmlns="http://www.w3.org/2000/svg" width="80px" height="60px" viewBox="0, 0, 429.403, 232.946">
@@ -136,8 +155,7 @@ export default function Header() {
                 {isLikeOpen && <ModalLike isLikeOpen={isLikeOpen} setIsLikeOpen={setIsLikeOpen} />}
               </span>
               <span onClick={() => setIsUserOpen(true)} className="block p-6 underlined text-black cursor-pointer">
-
-                <svg
+                {session?.user?.image ? (<img src={session?.user?.image} className="h-4 w-4 rounded-full"/>) : (<svg
                   className="h-4 w-4"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -150,7 +168,8 @@ export default function Header() {
                     strokeWidth="2"
                     d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
                   />
-                </svg>
+                </svg>)}
+                
                 <span className="sr-only"> Se connecter </span>
                 {isUserOpen && <ModalUser isUserOpen={isUserOpen} setIsUserOpen={setIsUserOpen} />}
               </span>
