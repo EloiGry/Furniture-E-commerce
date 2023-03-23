@@ -1,30 +1,8 @@
 import { Popover, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
-import hero1 from "../../assets/hero1.jpg"
-import hero2 from "../../assets/hero2.jpg"
-import hero3 from "../../assets/hero3.jpg"
 import Image from 'next/image'
+import { dataLiving } from '../DataHeader'
 
-const solutions = [
-  {
-    name: 'Salons',
-    description: 'Venez découvrir nos salons',
-    href: '/categories/salon',
-    icon: hero1,
-  },
-  {
-    name: 'Salles de bain',
-    description: 'Venez découvrir nos salles de bain',
-    href: '/categories/salledebain',
-    icon: hero2,
-  },
-  {
-    name: 'Cuisine',
-    description: 'Venez découvrir nos cuisines',
-    href: '/categories/cuisine',
-    icon: hero3,
-  },
-]
 
 export default function PopoverLiving() {
     const [isShowing, setIsShowing] = useState(false)
@@ -53,7 +31,7 @@ export default function PopoverLiving() {
               <Popover.Panel className="absolute left-1/2 z-10 mt-3 w-screen max-w-sm -translate-x-1/2 transform px-4 sm:px-0 lg:max-w-3xl" >
                 <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                   <div className="relative grid gap-8 bg-white p-7 lg:grid-cols-2">
-                    {solutions.map((item) => (
+                    {dataLiving.map((item) => (
                       <a
                         key={item.name}
                         href={item.href}

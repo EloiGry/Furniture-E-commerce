@@ -1,3 +1,4 @@
+import { CloseIcon } from '@/assets/icon/Icon'
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 import { RightToLeft, Opacity } from '../Transition'
@@ -28,7 +29,7 @@ export default function ModalMobile({ isMobileOpen, setIsMobileOpen }) {
                 as={Fragment}
                 // {...RightToLeft}
               >
-                <Dialog.Panel className="w-full md:w-[500px] transform overflow-hidden bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="relative w-full md:w-[500px] transform overflow-x-hidden overflow-y-auto bg-white p-6 text-left align-middle shadow-xl transition-all">
                   {/* <Dialog.Title
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
@@ -36,6 +37,7 @@ export default function ModalMobile({ isMobileOpen, setIsMobileOpen }) {
                     Mes coups de coeurs
                   </Dialog.Title> */}
                   <MobileHeader/>
+                  <button onClick={() => closeModal()} className="absolute top-20 right-2"> <CloseIcon/> </button>
                 </Dialog.Panel>
               </Transition.Child>
             </div>

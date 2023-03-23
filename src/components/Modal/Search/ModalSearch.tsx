@@ -1,3 +1,4 @@
+import { CloseIcon } from '@/assets/icon/Icon'
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 import { RightToLeft, Opacity } from '../Transition'
@@ -28,8 +29,9 @@ export default function ModalSearch({ isSearchOpen, setIsSearchOpen }) {
                 as={Fragment}
                 // {...RightToLeft}
               >
-                <Dialog.Panel className="w-full md:w-[500px] transform overflow-hidden bg-white p-6 text-left align-middle shadow-xl transition-all">
+                <Dialog.Panel className="relative w-full md:w-[500px] transform overflow-hidden bg-white p-6 text-left align-middle shadow-xl transition-all">
                   <Search/>
+                  <button onClick={() => closeModal()} className="absolute top-20 right-2"> <CloseIcon/> </button>
                 </Dialog.Panel>
               </Transition.Child>
             </div>
