@@ -2,14 +2,14 @@ import { motion } from "framer-motion";
 import PopoverDecoration from "./Popover/PopoverDecoration";
 import PopoverLiving from "./Popover/PopoverLiving";
 import ModalUser from "@/components/Modal/User/ModalUser";
-import { useState, useRef } from 'react';
-import {useOutsideClick} from '@/utils/usOutsideClick';
+import { useState} from 'react';
 import ModalCart from "@/components/Modal/Cart/ModalCart";
 import ModalSearch from "@/components/Modal/Search/ModalSearch";
 import ModalLike from "@/components/Modal/Like/ModalLike";
 import { useAppStore } from "@/lib/store";
 import { useSession } from "next-auth/react";
-import MobileHeader from "./MobileHeader";
+import ModalMobile from "@/components/Modal/MobileMenu/ModalMobile";
+
 
 export default function Header() {
   const { cart } = useAppStore()
@@ -18,10 +18,10 @@ export default function Header() {
   let [isSearchOpen, setIsSearchOpen] = useState(false)
   let [isLikeOpen, setIsLikeOpen] = useState(false)
   let [isUserOpen, setIsUserOpen] = useState(false)
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  let [isMobileOpen, setIsMobileOpen] = useState(false)
 
-  const ref = useRef()
-  useOutsideClick(ref, () => isMenuOpen && setIsMenuOpen(false));
+
+
 
   const pathVariants = {
     hidden: {
@@ -44,7 +44,7 @@ export default function Header() {
         className="mx-auto flex h-16 max-w-screen-2xl items-center justify-between sm:px-6 lg:px-8"
       >
         <div className="flex items-center gap-4">
-        {!isMenuOpen ? (<button type="button" className="p-2 lg:hidden" onClick={() => setIsMenuOpen(true)}>
+        <button className="p-2 lg:hidden" onClick={() => setIsMobileOpen(true)}>
               <svg
                 className="h-6 w-6"
                 xmlns="http://www.w3.org/2000/svg"
@@ -59,17 +59,8 @@ export default function Header() {
                   d="M4 6h16M4 12h16M4 18h16"
                 />
               </svg>
-            </button>) : (
-
-            <button type="button" className="p-2 lg:hidden" onClick={() => setIsMenuOpen(false)}>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
             </button>
-          )}
-          {
-            isMenuOpen && <MobileHeader/>
-          }
+            {isMobileOpen && <ModalMobile isMobileOpen={isMobileOpen} setIsMobileOpen={setIsMobileOpen} />}
 
 
           <a href="#" className="flex">
