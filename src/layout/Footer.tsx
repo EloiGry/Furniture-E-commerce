@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 
 const Footer = () => {
@@ -19,13 +20,13 @@ const Footer = () => {
 				<p className="pb-1 text-lg font-bold">Espace de vie</p>
 				<ul>
 					<li>
-						<a href="/categories/salon" className="hover:text-gold">Salons</a>
+						<Link href="/categories/salon" className="hover:text-gold">Salons</Link>
 					</li>
 					<li>
-						<a href="/categories/cuisine" className="hover:text-gold">Cuisine</a>
+						<Link href="/categories/cuisine" className="hover:text-gold">Cuisine</Link>
 					</li>
 					<li>
-						<a href="/categories/salledebain" className="hover:text-gold">Salles de bains</a>
+						<Link href="/categories/salledebain" className="hover:text-gold">Salles de bains</Link>
 					</li>
 				</ul>
 			</div>
@@ -33,16 +34,16 @@ const Footer = () => {
 				<p className="pb-1 text-lg font-bold">Décorations</p>
 				<ul>
 					<li>
-						<a href="/categories/chaise" className="hover:text-gold">Chaises</a>
+						<Link href="/categories/chaise" className="hover:text-gold">Chaises</Link>
 					</li>
 					<li>
-						<a href="/categories/lampe" className="hover:text-gold">Lampes</a>
+						<Link href="/categories/lampe" className="hover:text-gold">Lampes</Link>
 					</li>
 					<li>
-						<a href="/categories/plante" className="hover:text-gold">Plantes</a>
+						<Link href="/categories/plante" className="hover:text-gold">Plantes</Link>
 					</li>
 					<li>
-						<a href="/categories/table" className="hover:text-gold">Tables</a>
+						<Link href="/categories/table" className="hover:text-gold">Tables</Link>
 					</li>
 				</ul>
 			</div>

@@ -5,6 +5,7 @@ import Disclosure from "./Disclosure";
 import Image from "next/image";
 import { useState } from "react";
 import ModalSearch from "../Search/ModalSearch";
+import Link from "next/link";
 
 
 const MobileHeader = () => {
@@ -12,14 +13,14 @@ const MobileHeader = () => {
     let [isSearchOpen, setIsSearchOpen] = useState(false)
 
     return (
-        <div className="h-full mt-2 p-3 space-y-2 pt-[10vh]">
+        <div className="h-full mt-2 p-3 space-y-4 md:space-y-8 pt-[10vh]">
             <div className="divide-y divide-gray-900">
-                <ul className="pt-2 pb-4 space-y-1 text-sm divide-y divide-gray-300">
+                <ul className="pt-2 pb-4 space-y-2 md:space-y-4 text-sm divide-y divide-gray-300">
                     <li>
                         <Disclosure title="Espace de vie"> 
                             {dataLiving.map(item => {
                                 return (
-                                    <a
+                                    <Link
                         key={item.name}
                         href={item.href}
                         className="m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
@@ -35,7 +36,7 @@ const MobileHeader = () => {
                             {item.description}
                           </p>
                         </div>
-                      </a>
+                      </Link>
                                 )
                             })}
                         </Disclosure>
@@ -44,7 +45,7 @@ const MobileHeader = () => {
                     <Disclosure title="Décorations"> 
                             {dataDecoration.map(item => {
                                 return (
-                                    <a
+                                    <Link
                         key={item.name}
                         href={item.href}
                         className="m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
@@ -60,20 +61,20 @@ const MobileHeader = () => {
                             {item.description}
                           </p>
                         </div>
-                      </a>
+                      </Link>
                                 )
                             })}
                         </Disclosure>
                     </li>
                     <li>
-                            <a className=" flex items-center rounded-lg py-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50">
-                                <span> A propos </span>
-                            </a>
+                            <Link href="/about" className="flex items-center rounded-lg py-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50">
+                                <span className="capitalize"> à propos </span>
+                            </Link>
                     </li>
                     <li>
-                        <a className="flex items-center rounded-lg py-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50">
+                        <Link href="/contact" className="flex items-center rounded-lg py-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50">
                             <span> Contact </span>
-                        </a>
+                        </Link>
                     </li>
                 </ul>
                 <ul className="pt-4 pb-2 space-y-1 text-sm">

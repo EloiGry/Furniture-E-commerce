@@ -3,6 +3,16 @@ import { useAppStore } from '@/lib/store';
 import Container from '@/components/Container';
 import ProductsList from '@/components/ProductsList';
 import dynamic from "next/dynamic"
+import { useEffect } from 'react';
+import { GetServerSideProps } from 'next';
+import prisma from '@/lib/prismadb';
+
+export const getServerSideProps: GetServerSideProps = async () => {
+    const feed = await prisma.product.findMany();
+    return {
+      props: { feed }
+    };
+  };
 
 const Suggestions = dynamic(
   () => import('@/components/Suggestions'),
@@ -10,10 +20,16 @@ const Suggestions = dynamic(
 )
 
 
-const Category = () => {
+const Category = ({feed}) => {
     const router = useRouter()
-    const {products} = useAppStore()
+    const {products, fetchProducts} = useAppStore()
     const filter = products.filter(el => el.category.replace(/\s+/g, '') === router.query.name)
+
+    useEffect(() => {
+        if (!products) {
+            fetchProducts(feed)
+        }
+    }, [feed]) 
     
     return (
         <div className='pt-[12vh]'>

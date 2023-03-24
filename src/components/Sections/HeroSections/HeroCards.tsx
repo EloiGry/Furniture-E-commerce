@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { FadeIn } from "@/utils/FadeIn"
 import Image from 'next/image';
+import Link from 'next/link';
 
 type AppProps = {
     id: string,
@@ -8,10 +9,11 @@ type AppProps = {
     index: number,
     active: string,
     handleClick: (id: string) => void,
-    title: string
+    title: string,
+    slug: string,
 }
 
-export const HeroCard = ({ id, imgUrl, index, active, handleClick, title }: AppProps) => (
+export const HeroCard = ({ id, imgUrl, index, active, handleClick, title, slug }: AppProps) => (
     <motion.div
       variants={FadeIn('right', 'spring', index * 0.5, 0.75)}
       className={`relative ${
@@ -38,8 +40,8 @@ export const HeroCard = ({ id, imgUrl, index, active, handleClick, title }: AppP
           variants={characterAnimation}
         >
         <h2 
- className="underlined justify-center items-center flex font-semibold sm:text-[32px] text-[24px] text-white">
-          {title}
+          className="underlined justify-center items-center flex font-semibold sm:text-[32px] text-[24px] text-white">
+          <Link href={`/categories/${slug}`}> {title} </Link>
         </h2>
       </motion.div>
       </motion.div>)}

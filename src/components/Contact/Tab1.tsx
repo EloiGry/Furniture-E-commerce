@@ -16,9 +16,9 @@ const Tab1 = () => {
 
         <div className="mt-8">
             <h3> Siège social :</h3>
-          <a href="" className="text-2xl font-bold text-gold">
+          <p className="text-2xl font-bold text-gold">
             01 51 47 54 45
-          </a>
+          </p>
 
           <address className="mt-2 not-italic">
             282 rue de la Vilette, Paris

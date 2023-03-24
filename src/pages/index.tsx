@@ -2,8 +2,7 @@ import prisma from '@/lib/prismadb';
 import type { GetServerSideProps } from "next";
 import HeroSection from '@/components/Sections/HeroSections';
 import { useAppStore } from '@/lib/store';
-import { useEffect, useState } from 'react';
-import Loading from '@/components/Loading';
+import { useEffect } from 'react';
 import Newslatter from '@/components/Newslatter';
 import Testimonials from '@/components/Testimonials';
 import Stats from '@/components/Stats';
@@ -21,32 +20,24 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
 
 const IndexPage = ({feed}) => { 
-  const [loaded, setLoaded] = useState(false)
 
-  const { products, fetchProducts, cart} = useAppStore()
-
-  useEffect(() => {
-    setLoaded(true);
-}, [products]);
+  const {fetchProducts} = useAppStore()
 
   useEffect(() => {
       fetchProducts(feed)
   }, [feed])
 
-  if (!products || !loaded) {
-    return (
-      <Loading/>
-    )
-  }
+
+  
     return (
       <>
         <HeroSection/>
         <Stats/>
         <Newslatter/>
         <Testimonials/>
-         <Salons/>
-         <Cuisine/>
-         <SalleDeBain/>
+        <Salons/>
+        <Cuisine/>
+        <SalleDeBain/>
       </>
     )
   };

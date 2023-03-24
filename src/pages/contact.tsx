@@ -7,12 +7,12 @@ import React from 'react';
 const Contact = () => {
     
     return (
-    <div className='pt-[12vh]'>
+    <div className='pt-[10vh] md:pt-[7vh] lg:pt-[12vh]'>
         <Tab.Group>
         <Tab.List className="flex space-x-1 rounded-xl bg-black/20 p-1">
             <Tab className={({ selected }) =>
                     classNames(
-                    'w-full rounded-lg py-2.5 text-sm leading-5 text-black font-semibold',
+                    'w-full rounded-lg py-1.5 md:py-2.5 text-xs md:text-sm leading-5 text-black font-semibold',
                     'ring-white ring-opacity-60 ring-offset-2 focus:outline-none',
                     selected
                         ? 'bg-white shadow'
@@ -21,7 +21,7 @@ const Contact = () => {
                 }>Prendre rendez vous avec un conseiller </Tab>
             <Tab className={({ selected }) =>
                     classNames(
-                    'w-full rounded-lg py-2.5 text-sm leading-5 text-black font-semibold',
+                    'w-full rounded-lg py-1.5 md:py-2.5 text-xs md:text-sm leading-5 text-black font-semibold',
                     'ring-white ring-opacity-60 ring-offset-2 focus:outline-none',
                     selected
                         ? 'bg-white shadow'

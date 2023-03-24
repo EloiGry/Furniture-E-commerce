@@ -2,6 +2,8 @@ import { Popover, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 import Image from 'next/image'
 import { dataLiving } from '../DataHeader'
+import Link from 'next/link'
+import { ClickIcon } from '@/assets/icon/Icon'
 
 
 export default function PopoverLiving() {
@@ -61,13 +63,11 @@ export default function PopoverLiving() {
                           Design personnalisé ?
                         </span>
                       </span>
-                      <a href='/contact' className="flex text-sm text-gray-500">
+                      <Link href='/contact' className="flex text-sm text-gray-500">
                         Prendre contact avec un conseiller
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="ml-2 w-5 h-5">
-  <path strokeLinecap="round" strokeLinejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59" />
-</svg>
+                        <ClickIcon/>
 
-                      </a>
+                      </Link>
                     </a>
                   </div>
                 </div>
