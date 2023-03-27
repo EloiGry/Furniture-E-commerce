@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Product } from '@/types/Product';
 import DisplayPrice from '@/utils/DisplayPrice';
 import { CartIcon, LikeIcon } from '@/assets/icon/Icon';
+import Link from 'next/link';
 
 
 
@@ -23,7 +24,7 @@ const Search = () => {
                 return (
                     <div key={product.name} className="grid-cart">
                         <img src={product.image} className="w-8 h-8"/>
-                        <p className="truncate"> {product.name} </p>
+                        <Link href={`/products/${product.id}`} className="truncate"> {product.name} </Link>
                         <button onClick={() => addToCart(product)} className="flex items-center justify-start gap-1">
                             <p> Ajouter </p>
                                 <CartIcon fill="none"/>
