@@ -15,7 +15,7 @@ export default function ModalMobile({ isMobileOpen, setIsMobileOpen }) {
   return (
     <>
       <Transition appear show={isMobileOpen} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={closeModal}>
+        <Dialog as="div" className="relative z-10 lg:hidden" onClose={closeModal}>
           <Transition.Child
             as={Fragment}
             {...Opacity}

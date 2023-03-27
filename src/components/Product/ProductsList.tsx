@@ -1,7 +1,7 @@
 import { Product } from "@/types/Product";
-import MasonryGrid from "../../MasonryGrid";
+import MasonryGrid from "../MasonryGrid";
 import DisplayPrice from "@/utils/DisplayPrice";
-import Container from "../../Container";
+import Container from "../Container";
 import { useAppStore } from "@/lib/store";
 import Router from "next/router";
 import { CartIcon, LikeIcon } from "@/assets/icon/Icon";

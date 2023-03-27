@@ -1,4 +1,4 @@
-import ImageMagnifier from '@/components/Sections/Product/ImageMagnifier';
+import ImageMagnifier from '@/components/Product/ImageMagnifier';
 import { useRouter } from 'next/router'
 import { useAppStore } from '@/lib/store';
 import Container from '@/components/Container';
@@ -7,7 +7,7 @@ import { CartIcon, LikeIcon } from '@/assets/icon/Icon';
 import { useEffect } from 'react';
 import { GetServerSideProps } from 'next';
 import prisma from '@/lib/prismadb';
-import Suggestions from '@/components/Sections/Product/Suggestions';
+import Suggestions from '@/components/Product/Suggestions';
 
 export const getServerSideProps: GetServerSideProps = async () => {
     const feed = await prisma.product.findMany();

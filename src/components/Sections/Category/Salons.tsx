@@ -1,5 +1,5 @@
 import { useAppStore } from "@/lib/store";
-import ProductsList from "../Product/ProductsList";
+import ProductsList from "../../Product/ProductsList";
 
 const Salons = () => {
     const { products } = useAppStore()

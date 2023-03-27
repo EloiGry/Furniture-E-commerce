@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router'
 import { useAppStore } from '@/lib/store';
 import Container from '@/components/Container';
-import ProductsList from '@/components/Sections/Product/ProductsList';
+import ProductsList from '@/components/Product/ProductsList';
 import { useEffect } from 'react';
 import { GetServerSideProps } from 'next';
 import prisma from '@/lib/prismadb';
-import Suggestions from '@/components/Sections/Product/Suggestions';
+import Suggestions from '@/components/Product/Suggestions';
 
 export const getServerSideProps: GetServerSideProps = async () => {
     const feed = await prisma.product.findMany();
@@ -38,7 +38,7 @@ const Category = ({ feed }) => {
 export default Category;
 
 const TitleCategory = (string: string | string[]) => {
-    let title: string = null
+    let title: string 
     switch (string) {
         case "salon": title = "Nos Salons";
             break;

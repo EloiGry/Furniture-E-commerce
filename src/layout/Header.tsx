@@ -71,7 +71,6 @@ export default function Header() {
 
         <div className="flex flex-1 items-center justify-end gap-8">
           <nav
-            aria-label="Site Nav"
             className="hidden lg:flex lg:gap-8 lg:text-xs lg:font-bold lg:uppercase lg:tracking-wide lg:text-black"
           >
             <PopoverLiving />

@@ -1,13 +1,13 @@
 import { Popover, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 import Image from 'next/image'
-import { dataLiving } from '../DataHeader'
+import { dataLiving } from '../../utils/DataHeader'
 import Link from 'next/link'
 import { ClickIcon } from '@/assets/icon/Icon'
 
 
 export default function PopoverLiving() {
-    const [isShowing, setIsShowing] = useState(false)
+  const [isShowing, setIsShowing] = useState(false)
   return (
     <div onMouseEnter={() => setIsShowing(true)} onMouseLeave={() => setIsShowing(false)}>
       <Popover className="relative">
@@ -63,11 +63,10 @@ export default function PopoverLiving() {
                           Design personnalisé ?
                         </span>
                       </span>
-                      <Link href='/contact' className="flex text-sm text-gray-500">
+                      <button className="flex text-sm text-gray-500">
                         Prendre contact avec un conseiller
-                        <ClickIcon/>
-
-                      </Link>
+                        <ClickIcon />
+                      </button>
                     </Link>
                   </div>
                 </div>

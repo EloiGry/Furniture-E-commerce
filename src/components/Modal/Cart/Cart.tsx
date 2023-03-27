@@ -5,14 +5,14 @@ import { TrashIcon } from "@/assets/icon/Icon";
 
 const Cart = ({products}) => {
     const {updateQuantity, removeFromCart} = useAppStore()
-    const sum = products.reduce((total: number, obj: Product) => obj.price * obj.quantity + total, 0);
+    const sum = products?.reduce((total: number, obj: Product) => obj.price * obj.quantity + total, 0);
     
 
     return (
         <div className="flex flex-col justify-start gap-4 pt-[10vh]">
             <h4> Mon Panier </h4>
-            {products.length < 1 && <p className="text-gray-500"> Vous n'avez aucuns produits dans votre panier </p>}
-            {products.map((product: Product) => {
+            {products?.length < 1 && <p className="text-gray-500"> Vous n'avez aucuns produits dans votre panier </p>}
+            {products?.map((product: Product) => {
                 return (
                     <div key={product.name} className="grid-cart">
                         <img src={product.image} className="w-8 h-8"/>
