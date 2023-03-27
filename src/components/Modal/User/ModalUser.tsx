@@ -1,7 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
 import { signOut, useSession, signIn } from 'next-auth/react';
-import { RightToLeft, Opacity } from '../Transition'
+import { Opacity } from '../Transition'
 import { CloseIcon, UserIcon } from '@/assets/icon/Icon';
 
 const connected = [{ name: "Déconnexion", icon: EditActiveIcon, onClick: signOut }, { name: "Mes commandes", icon: EditActiveIcon, onClick: signOut }, { name: "Editer profil", icon: EditActiveIcon, onClick: signOut }]
@@ -32,7 +32,6 @@ export default function ModalUser({ isUserOpen, setIsUserOpen }) {
             <div className="flex min-h-full items-right justify-right text-center overflow-x-hidden">
               <Transition.Child
                 as={Fragment}
-                // {...RightToLeft}
 
               >
                 <Dialog.Panel className="relative flex flex-col justify-evenly items-center pt-[12vh] w-full md:w-[500px] transform overflow-hidden bg-white p-6 text-left align-middle shadow-xl transition-all">

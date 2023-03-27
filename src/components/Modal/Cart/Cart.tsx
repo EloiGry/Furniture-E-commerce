@@ -14,7 +14,7 @@ const Cart = ({products}) => {
             {products.length < 1 && <p className="text-gray-500"> Vous n'avez aucuns produits dans votre panier </p>}
             {products.map((product: Product) => {
                 return (
-                    <div key={product.id} className="grid-cart">
+                    <div key={product.name} className="grid-cart">
                         <img src={product.image} className="w-8 h-8"/>
                         <p className="truncate"> {product.name} </p>
                         <div className="flex items-center justify-start gap-2">

@@ -8,7 +8,7 @@ import ModalSearch from "../Search/ModalSearch";
 import Link from "next/link";
 
 
-const MobileHeader = () => {
+const MobileHeader = ({closeModal}) => {
     const {data : session} = useSession()
     let [isSearchOpen, setIsSearchOpen] = useState(false)
 
@@ -21,6 +21,7 @@ const MobileHeader = () => {
                             {dataLiving.map(item => {
                                 return (
                                     <Link
+                        onClick={closeModal}
                         key={item.name}
                         href={item.href}
                         className="m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
@@ -46,6 +47,7 @@ const MobileHeader = () => {
                             {dataDecoration.map(item => {
                                 return (
                                     <Link
+                        onClick={closeModal}
                         key={item.name}
                         href={item.href}
                         className="m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
@@ -67,12 +69,12 @@ const MobileHeader = () => {
                         </Disclosure>
                     </li>
                     <li>
-                            <Link href="/about" className="flex items-center rounded-lg py-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50">
+                            <Link href="/about" onClick={closeModal} className="flex items-center rounded-lg py-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50">
                                 <span className="capitalize"> à propos </span>
                             </Link>
                     </li>
                     <li>
-                        <Link href="/contact" className="flex items-center rounded-lg py-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50">
+                        <Link onClick={closeModal} href="/contact" className="flex items-center rounded-lg py-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50">
                             <span> Contact </span>
                         </Link>
                     </li>
@@ -87,10 +89,10 @@ const MobileHeader = () => {
                     </li>
                     {session && 
                         <li>
-                            <a rel="noopener noreferrer" href="#" className="flex items-center p-2 space-x-3 rounded-md">
+                            <button className="flex items-center p-2 space-x-3 rounded-md">
                                 <OrderIcon/>
                                 <span>Mes Commandes</span>
-                            </a>
+                            </button>
                         </li>
                     }
                 </ul>

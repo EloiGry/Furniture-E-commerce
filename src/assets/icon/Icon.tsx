@@ -1,3 +1,7 @@
+type Fill = {
+    fill: string;
+}
+
 export function CloseIcon () {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -33,11 +37,11 @@ export function UserIcon () {
     )
 } 
 
-export function CartIcon () {
+export function CartIcon ({fill}:Fill) {
     return (
         <svg
         className="h-4 w-4"
-        fill="none"
+        fill={fill}
         viewBox="0 0 24 24"
         stroke="currentColor"
         xmlns="http://www.w3.org/2000/svg"
@@ -52,11 +56,11 @@ export function CartIcon () {
     )
 }
 
-export function LikeIcon () {
+export function LikeIcon ({fill}:Fill) {
     return (
         <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  fill="none" viewBox="0 0 24 24"
+                  fill={fill} viewBox="0 0 24 24"
                   strokeWidth="2"
                   stroke="currentColor"
                   className="w-4 h-4">

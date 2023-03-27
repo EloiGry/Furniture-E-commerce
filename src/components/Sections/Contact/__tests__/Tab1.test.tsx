@@ -1,15 +1,15 @@
-import { render, screen} from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Calendar from "../Calendar";
 import Tab1 from "../Tab1";
 
-jest.mock('../Calendar', () => () => <div data-testid="calendarCheck"/>)
+jest.mock('../Calendar', () => () => <div data-testid="calendarCheck" />)
 
 describe("Tab1 component", () => {
-    it("should render Calendar component", () => {
-        const { getByTestId } = render(<Calendar/>)
-        expect(getByTestId(/calendarCheck/)).toBeInTheDocument();
-    })
+  it("should render Calendar component", () => {
+    const { getByTestId } = render(<Calendar />)
+    expect(getByTestId(/calendarCheck/)).toBeInTheDocument();
+  })
   it("renders the form and fields", () => {
     render(<Tab1 />);
     expect(screen.getByLabelText("Nom")).toBeInTheDocument();

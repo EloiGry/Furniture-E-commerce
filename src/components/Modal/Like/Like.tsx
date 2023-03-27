@@ -11,12 +11,12 @@ const Like = ({products}) => {
             {products.length < 1 && <p className="text-gray-500"> Vous n'avez pas encore de produits coup de coeurs </p>}
             {products.map((product: Product) => {
                 return (
-                    <div key={product.id} className="grid-cart">
+                    <div key={product.name} className="grid-cart">
                         <img src={product.image} className="w-8 h-8"/>
                         <p className="truncate"> {product.name} </p>
                         <button onClick={() => addToCart(product)} className="flex items-center justify-start gap-1">
                             <p> Ajouter </p>
-                                <CartIcon/>
+                                <CartIcon fill="none"/>
                         </button>
                         <span> {DisplayPrice(product.price)}</span>
                         <button onClick={() =>removeFromLike(product?.id)}>

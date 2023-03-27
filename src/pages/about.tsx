@@ -1,15 +1,15 @@
-import Newslatter from "@/components/Newslatter";
+import Newslatter from "@/components/Sections/Home/Newslatter";
 import Stats from "@/components/Stats";
 import Testimonials from "@/components/Testimonials";
-import Timeline from "@/components/Timeline";
+import Timeline from "@/components/Sections/About/Timeline";
 
 const About = () => {
     return (
         <>
-            <Timeline/>
-            <Stats/>
-            <Testimonials/>
-            <Newslatter/>
+            <Timeline />
+            <Stats marginTop="0px"/>
+            <Testimonials />
+            <Newslatter />
         </>
     );
 };

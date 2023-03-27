@@ -1,11 +1,11 @@
 import { useAppStore } from "@/lib/store";
-import ProductsList from "./ProductsList";
+import ProductsList from "../Product/ProductsList";
 
 const Cuisine = () => {
-    const {products} = useAppStore()
+    const { products } = useAppStore()
     const filter = products.filter(product => product.category === "cuisine")
     return (
-        <ProductsList products={filter} title="Nos Cuisines"/>
+        <ProductsList products={filter} title="Nos Cuisines" />
     );
 };
 

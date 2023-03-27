@@ -2,11 +2,11 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import Tab2 from "../Tab2";
 
 describe("Tab2 component", () => {
-    it("renders the component", () => {
-        render(<Tab2 />);
-        const sectionElement = screen.getByTestId("tab2-section");
-        expect(sectionElement).toBeInTheDocument();
-      });
+  it("renders the component", () => {
+    render(<Tab2 />);
+    const sectionElement = screen.getByTestId("tab2-section");
+    expect(sectionElement).toBeInTheDocument();
+  });
 
   it("submits the form with user input", () => {
     render(<Tab2 />);

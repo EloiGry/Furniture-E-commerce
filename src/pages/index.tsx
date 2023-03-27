@@ -1,14 +1,14 @@
 import prisma from '@/lib/prismadb';
 import type { GetServerSideProps } from "next";
-import HeroSection from '@/components/Sections/HeroSections';
+import HeroSection from '@/components/Sections/Home/HeroSection';
 import { useAppStore } from '@/lib/store';
 import { useEffect } from 'react';
-import Newslatter from '@/components/Newslatter';
+import Newslatter from '@/components/Sections/Home/Newslatter';
 import Testimonials from '@/components/Testimonials';
 import Stats from '@/components/Stats';
-import Salons from '@/components/Salons';
-import Cuisine from '@/components/Cuisine';
-import SalleDeBain from '@/components/SalleDeBain';
+import Salons from '@/components/Sections/Category/Salons';
+import Cuisine from '@/components/Sections/Category/Cuisine';
+import SalleDeBain from '@/components/Sections/Category/SalleDeBain';
 
 
 export const getServerSideProps: GetServerSideProps = async () => {
@@ -19,27 +19,27 @@ export const getServerSideProps: GetServerSideProps = async () => {
 };
 
 
-const IndexPage = ({feed}) => { 
+const IndexPage = ({ feed }) => {
 
-  const {fetchProducts} = useAppStore()
+  const { fetchProducts } = useAppStore()
 
   useEffect(() => {
-      fetchProducts(feed)
+    fetchProducts(feed)
   }, [feed])
 
 
-  
-    return (
-      <>
-        <HeroSection/>
-        <Stats/>
-        <Newslatter/>
-        <Testimonials/>
-        <Salons/>
-        <Cuisine/>
-        <SalleDeBain/>
-      </>
-    )
-  };
+
+  return (
+    <>
+      <HeroSection />
+      <Stats marginTop='none'/>
+      <Newslatter />
+      <Testimonials />
+      <Salons />
+      <Cuisine />
+      <SalleDeBain />
+    </>
+  )
+};
 
 export default IndexPage;

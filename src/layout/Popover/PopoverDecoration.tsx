@@ -33,7 +33,7 @@ export default function PopoverDecoration() {
                 <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
                   <div className="relative grid gap-8 bg-white p-7 lg:grid-cols-2">
                     {dataDecoration.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
                         href={item.href}
                         className="-m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
@@ -49,11 +49,11 @@ export default function PopoverDecoration() {
                             {item.description}
                           </p>
                         </div>
-                      </a>
+                      </Link>
                     ))}
                   </div>
                   <div className="bg-gray-50 p-4">
-                    <a
+                    <Link
                       href="##"
                       className="flow-root rounded-md px-2 py-2 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
                     >
@@ -67,7 +67,7 @@ export default function PopoverDecoration() {
                         <ClickIcon/>
 
                       </Link>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </Popover.Panel>

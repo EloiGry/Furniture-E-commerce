@@ -1,6 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
-import { RightToLeft, Opacity } from '../Transition'
+import { Opacity } from '../Transition'
 import Cart from './Cart'
 import { useAppStore } from '@/lib/store';
 import { CloseIcon } from '@/assets/icon/Icon';
@@ -26,7 +26,6 @@ export default function ModalCart({ isCartOpen, setIsCartOpen }) {
             <div className="flex min-h-full items-right justify-right text-center overflow-x-hidden">
               <Transition.Child
                 as={Fragment}
-                // {...RightToLeft}
               >
                 <Dialog.Panel className="relative w-full md:w-[500px] transform overflow-x-hidden overflow-y-auto bg-white p-6 text-left align-middle shadow-xl transition-all">
                 <button onClick={() => closeModal()} className="absolute top-20 right-2"> <CloseIcon/> </button>

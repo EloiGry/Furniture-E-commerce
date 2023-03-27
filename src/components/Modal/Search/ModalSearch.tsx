@@ -1,7 +1,7 @@
 import { CloseIcon } from '@/assets/icon/Icon'
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
-import { RightToLeft, Opacity } from '../Transition'
+import { Opacity } from '../Transition'
 import Search from './Search'
 
 export default function ModalSearch({ isSearchOpen, setIsSearchOpen }) {
@@ -27,7 +27,6 @@ export default function ModalSearch({ isSearchOpen, setIsSearchOpen }) {
             <div className="flex min-h-full items-right justify-right text-center overflow-x-hidden">
               <Transition.Child
                 as={Fragment}
-                // {...RightToLeft}
               >
                 <Dialog.Panel className="relative w-full md:w-[500px] transform overflow-hidden bg-white p-6 text-left align-middle shadow-xl transition-all">
                   <Search/>

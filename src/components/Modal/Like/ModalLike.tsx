@@ -1,6 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
-import { RightToLeft, Opacity } from '../Transition'
+import { Opacity } from '../Transition'
 import Like from './Like'
 import { useAppStore } from '@/lib/store'
 import { CloseIcon } from '@/assets/icon/Icon'
@@ -28,15 +28,8 @@ export default function ModalLike({ isLikeOpen, setIsLikeOpen }) {
             <div className="flex h-full items-right justify-right text-center">
               <Transition.Child
                 as={Fragment}
-                // {...RightToLeft}
               >
                 <Dialog.Panel className="relative w-full md:w-[500px] transform overflow-hidden bg-white p-6 text-left align-middle shadow-xl transition-all">
-                  {/* <Dialog.Title
-                    as="h3"
-                    className="text-lg font-medium leading-6 text-gray-900"
-                  >
-                    Mes coups de coeurs
-                  </Dialog.Title> */}
                   <button onClick={() => closeModal()} className="absolute top-20 right-2"> <CloseIcon/> </button>
                   <Like products={like}/>
                 </Dialog.Panel>

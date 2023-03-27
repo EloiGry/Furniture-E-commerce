@@ -80,19 +80,19 @@ export default function Header() {
 
             <PopoverDecoration />
 
-            <a
+            <Link
               href="/about"
               className="block h-16 leading-[4rem] underlined"
             >
               à propos
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/contact"
               className="block h-16 leading-[4rem] underlined"
             >
               Contact
-            </a>
+            </Link>
           </nav>
 
           <div className="flex items-center">
@@ -103,13 +103,13 @@ export default function Header() {
                 <div className="bg-black text-white rounded-full absolute right-3 top-3 w-4 h-4 flex items-center justify-center font-TitleFont text-xs">
                   <span> {cart.length} </span>
                 </div>
-                <CartIcon/>
+                <CartIcon fill="none"/>
                 <span className="sr-only">Cart</span>
                 {isCartOpen && <ModalCart isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />}
               </span>
               <span onClick={() => setIsLikeOpen(true)} className="block p-6 underlined text-black cursor-pointer">
 
-                <LikeIcon/>
+                <LikeIcon fill="none"/>
                 <span className="sr-only">Like</span>
                 {isLikeOpen && <ModalLike isLikeOpen={isLikeOpen} setIsLikeOpen={setIsLikeOpen} />}
               </span>

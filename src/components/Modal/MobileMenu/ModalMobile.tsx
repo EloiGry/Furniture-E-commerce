@@ -30,7 +30,7 @@ export default function ModalMobile({ isMobileOpen, setIsMobileOpen }) {
               >
                 <Dialog.Panel className="relative w-full md:w-[500px] transform overflow-x-hidden overflow-y-auto bg-white p-6 text-left align-middle shadow-xl transition-all">
 
-                  <MobileHeader/>
+                  <MobileHeader closeModal={closeModal}/>
                   <button onClick={() => closeModal()} className="absolute top-20 right-2"> <CloseIcon/> </button>
                 </Dialog.Panel>
               </Transition.Child>
