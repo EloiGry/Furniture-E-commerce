@@ -1,8 +1,4 @@
-import dynamic from "next/dynamic"
-const Calendar = dynamic(
-  () => import('./Calendar'),
-  { ssr: false }
-)
+import Calendar from "./Calendar";
 
 const Tab1 = () => {
   return (

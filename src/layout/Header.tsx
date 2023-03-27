@@ -23,8 +23,6 @@ export default function Header() {
   let [isMobileOpen, setIsMobileOpen] = useState(false)
 
 
-
-
   const pathVariants = {
     hidden: {
       opacity: 0,
@@ -48,8 +46,8 @@ export default function Header() {
         <div className="flex items-center gap-4">
         <button className="p-2 lg:hidden" onClick={() => setIsMobileOpen(true)}>
               <MenuIcon/>
-            </button>
-            {isMobileOpen && <ModalMobile isMobileOpen={isMobileOpen} setIsMobileOpen={setIsMobileOpen} />}
+          </button>
+          {isMobileOpen && <ModalMobile isMobileOpen={isMobileOpen} setIsMobileOpen={setIsMobileOpen} />}
 
           <Link href="/" className="flex">
             <motion.svg className="framerLogo" initial='hidden' animate='visible' fill="none" version="1.1" xmlns="http://www.w3.org/2000/svg" width="80px" height="60px" viewBox="0, 0, 429.403, 232.946">

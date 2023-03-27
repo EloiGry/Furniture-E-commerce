@@ -10,12 +10,12 @@ import { CartIcon, LikeIcon } from "@/assets/icon/Icon";
 import { useEffect, useState } from "react";
 
 const Suggestions = () => {
-  const [selection, setSelection] = useState<Product[]>()
+    const [selection, setSelection] = useState<Product[]>([])
     const router = useRouter()
     const {products, addToCart, addToLike, cart, like } = useAppStore()
-    const filter = products.filter(el => el.category.replace(/\s+/g, '') !== router.query.name)
     
     useEffect(() => {
+      const filter = products.filter(el => el.category.replace(/\s+/g, '') !== router.query.name)
       const newArray = [...filter].sort(() => Math.random() - 0.5).splice(0, 9)
       setSelection(newArray)
     }, [])
@@ -42,8 +42,7 @@ const Suggestions = () => {
       >
         {selection?.map((product: Product) => {
           return (
-            <div key={product.id}>
-            <SwiperSlide>
+            <SwiperSlide key={product.id}>
               <div>
                 <div className="relative cursor-pointer hover:transform hover:scale-105 duration-300 transition-all">
                   <img src={product.image} height={320}/>
@@ -63,7 +62,6 @@ const Suggestions = () => {
                  </div>
               </div>
               </SwiperSlide>
-            </div>
           )
         })}
       </Swiper>
