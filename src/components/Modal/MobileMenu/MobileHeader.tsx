@@ -13,7 +13,7 @@ const MobileHeader = ({ closeModal }) => {
   let [isSearchOpen, setIsSearchOpen] = useState(false)
 
   return (
-    <div className="lg:hidden h-full mt-2 p-3 space-y-4 md:space-y-8 pt-[10vh]">
+    <div className="h-full mt-2 p-3 space-y-4 md:space-y-8 pt-[10vh]">
       <div className="divide-y divide-gray-900">
         <ul className="pt-2 pb-4 space-y-2 md:space-y-4 text-sm divide-y divide-gray-300">
           <li>
