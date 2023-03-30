@@ -25,12 +25,14 @@ export default function ImageMagnifier({
           height: height,
           width: width
         }}
-        className="w-full h-full "
+        className="w-full h-full"
+        
       >
         <img
         className="w-full h-full object-scale-down overflow-hidden"
           src={src}
           style={{ height: height, width: width }}
+          
           onMouseEnter={(e) => {
             // update image size and turn-on magnifier
             const elem = e.currentTarget;
@@ -84,6 +86,7 @@ export default function ImageMagnifier({
             backgroundPositionX: `${-x * zoomLevel + magnifieWidth / 2}px`,
             backgroundPositionY: `${-y * zoomLevel + magnifierHeight / 2}px`
           }}
+          data-testid = "magnifier"
         ></div>
       </div>
     );

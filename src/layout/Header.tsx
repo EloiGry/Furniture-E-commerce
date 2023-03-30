@@ -16,11 +16,11 @@ import Link from "next/link";
 export default function Header() {
   const { cart } = useAppStore()
   const {data : session} = useSession()
-  let [isCartOpen, setIsCartOpen] = useState(false)
-  let [isSearchOpen, setIsSearchOpen] = useState(false)
-  let [isLikeOpen, setIsLikeOpen] = useState(false)
-  let [isUserOpen, setIsUserOpen] = useState(false)
-  let [isMobileOpen, setIsMobileOpen] = useState(false)
+  let [isCartOpen, setIsCartOpen] = useState<boolean>(false)
+  let [isSearchOpen, setIsSearchOpen] = useState<boolean>(false)
+  let [isLikeOpen, setIsLikeOpen] = useState<boolean>(false)
+  let [isUserOpen, setIsUserOpen] = useState<boolean>(false)
+  let [isMobileOpen, setIsMobileOpen] = useState<boolean>(false)
 
 
   const pathVariants = {

@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { HeroCard } from "./HeroCards";
 
-type MyType = {
+export type MyType = {
     imgUrl: string | any;
     id: string;
     title: string;

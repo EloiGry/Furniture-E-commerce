@@ -7,7 +7,7 @@ import { ClickIcon } from '@/assets/icon/Icon'
 
 
 export default function PopoverLiving() {
-  const [isShowing, setIsShowing] = useState(false)
+  const [isShowing, setIsShowing] = useState<boolean>(false)
   return (
     <div onMouseEnter={() => setIsShowing(true)} onMouseLeave={() => setIsShowing(false)}>
       <Popover className="relative">

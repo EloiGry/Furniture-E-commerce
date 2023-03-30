@@ -10,7 +10,7 @@ import Link from "next/link";
 
 const MobileHeader = ({ closeModal }) => {
   const { data: session } = useSession()
-  let [isSearchOpen, setIsSearchOpen] = useState(false)
+  let [isSearchOpen, setIsSearchOpen] = useState<boolean>(false)
 
   return (
     <div className="h-full mt-2 p-3 space-y-4 md:space-y-8 pt-[10vh]">

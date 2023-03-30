@@ -2,7 +2,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 
 const Newslatter = () => {
-	let [isOpen, setIsOpen] = useState(false)
+	let [isOpen, setIsOpen] = useState<boolean>(false)
 
   function closeModal() {
     setIsOpen(false)

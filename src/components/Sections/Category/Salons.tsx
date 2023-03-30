@@ -1,9 +1,10 @@
 import { useAppStore } from "@/lib/store";
 import ProductsList from "../../Product/ProductsList";
+import { Product } from "@/types/Product";
 
 const Salons = () => {
     const { products } = useAppStore()
-    const filter = products.filter(product => product.category === "salon")
+    const filter: Product[] = products.filter(product => product.category === "salon")
 
 
     return (

@@ -15,6 +15,7 @@ type AppProps = {
 
 export const HeroCard = ({ id, imgUrl, index, active, handleClick, title, slug }: AppProps) => (
     <motion.div
+      data-testid={`hero-card-${index}`}
       variants={FadeIn('right', 'spring', index * 0.5, 0.75)}
       className={`relative ${
         active === id ? 'lg:flex-[3.5] flex-[10]' : 'lg:flex-[0.5] flex-[2]'
@@ -23,8 +24,11 @@ export const HeroCard = ({ id, imgUrl, index, active, handleClick, title, slug }
     >
       <Image
         src={imgUrl}
+        priority={true}
         alt="mainImages"
         className="absolute h-full object-cover rounded-[24px] w-full"
+        width="0"
+        height="0"
       />
       {active !== id ? (
       <h3 className="font-semibold sm:text-[26px] text-[18px] text-white absolute z-0 lg:bottom-20 lg:rotate-[-90deg] lg:origin-[0,0]">

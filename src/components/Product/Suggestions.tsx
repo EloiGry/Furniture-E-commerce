@@ -15,8 +15,8 @@ const Suggestions = () => {
     const {products, addToCart, addToLike, cart, like } = useAppStore()
     
     useEffect(() => {
-      const filter = products.filter(el => el.category.replace(/\s+/g, '') !== router.query.name)
-      const newArray = [...filter].sort(() => Math.random() - 0.5).splice(0, 9)
+      const filter: Product[] = products.filter(el => el.category.replace(/\s+/g, '') !== router.query.name)
+      const newArray: Product[] = [...filter].sort(() => Math.random() - 0.5).splice(0, 9)
       setSelection(newArray)
     }, [])
     

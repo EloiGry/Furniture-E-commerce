@@ -28,10 +28,10 @@ const ProductsList = ({ products, title }: List) => {
                                     <span className='font-semibold m-1'> {DisplayPrice(product.price)} </span>
                                     <div className="flex justify-center items-center gap-2">
                                         <button onClick={() => addToCart(product)} className='bg-gold p-2 rounded-full font-semibold hover:bg-lightgold'>
-                                            <CartIcon fill={cart.find(el => el.name === product.name) ? "white" : "none"} />
+                                            <CartIcon fill={cart?.find(el => el.name === product.name) ? "white" : "none"} />
                                         </button>
                                         <button onClick={() => addToLike(product)} className='bg-gold p-2 rounded-full font-semibold hover:bg-lightgold'>
-                                            <LikeIcon fill={like.find(el => el.name === product.name) ? "white" : "none"} />
+                                            <LikeIcon fill={like?.find(el => el.name === product.name) ? "white" : "none"} />
                                         </button>
                                     </div>
                                     <button onClick={() => Router.push(`/products/${product.id}`)} className="bg-gold py-1 px-10 m-4 rounded-sm font-semibold hover:bg-lightgold"> Voir </button>

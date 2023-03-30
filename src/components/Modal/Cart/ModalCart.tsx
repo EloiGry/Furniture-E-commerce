@@ -7,6 +7,7 @@ import { CloseIcon } from '@/assets/icon/Icon';
 
 export default function ModalCart({ isCartOpen, setIsCartOpen }) {
   const { cart } = useAppStore()
+  
   function closeModal() {
     setIsCartOpen(false)
   }

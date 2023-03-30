@@ -5,7 +5,7 @@ import { LikeSlice, createLikeSlice } from '@/slices/createLikeSlice'
 import { persist } from 'zustand/middleware'
 
 
-type StoreState = ProductSlice & CartSlice & LikeSlice
+export type StoreState = ProductSlice & CartSlice & LikeSlice
 
 export const useAppStore = create<StoreState>()(persist((...a) => ({
     ...createProductSlice(...a),

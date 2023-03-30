@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import { GetServerSideProps } from 'next';
 import prisma from '@/lib/prismadb';
 import Suggestions from '@/components/Product/Suggestions';
+import { Product } from '@/types/Product';
 
 export const getServerSideProps: GetServerSideProps = async () => {
     const feed = await prisma.product.findMany();
@@ -17,10 +18,10 @@ export const getServerSideProps: GetServerSideProps = async () => {
 };
 
 
-const Product = ({ feed }) => {
+const OneProduct = ({ feed }) => {
     const router = useRouter()
     const { products, addToCart, addToLike, fetchProducts, cart, like } = useAppStore()
-    const product = products.find(el => el.id === Number(router.query.id))
+    const product: Product = products.find(el => el.id === Number(router.query.id))
 
     useEffect(() => {
         if (!products) {
@@ -56,4 +57,4 @@ const Product = ({ feed }) => {
     );
 };
 
-export default Product;
+export default OneProduct;

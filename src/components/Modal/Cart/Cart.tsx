@@ -5,7 +5,7 @@ import { TrashIcon } from "@/assets/icon/Icon";
 
 const Cart = ({products}) => {
     const {updateQuantity, removeFromCart} = useAppStore()
-    const sum = products?.reduce((total: number, obj: Product) => obj.price * obj.quantity + total, 0);
+    const sum: number = products?.reduce((total: number, obj: Product) => obj.price * obj.quantity + total, 0);
     
 
     return (

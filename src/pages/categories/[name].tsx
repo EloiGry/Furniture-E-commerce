@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { GetServerSideProps } from 'next';
 import prisma from '@/lib/prismadb';
 import Suggestions from '@/components/Product/Suggestions';
+import { Product } from '@/types/Product';
 
 export const getServerSideProps: GetServerSideProps = async () => {
     const feed = await prisma.product.findMany();
@@ -17,7 +18,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
 const Category = ({ feed }) => {
     const router = useRouter()
     const { products, fetchProducts } = useAppStore()
-    const filter = products.filter(el => el.category.replace(/\s+/g, '') === router.query.name)
+    const filter: Product[] = products.filter(el => el.category.replace(/\s+/g, '') === router.query.name)
 
     useEffect(() => {
         if (!products) {

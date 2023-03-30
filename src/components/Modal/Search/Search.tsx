@@ -9,7 +9,7 @@ import Link from 'next/link';
 
 const Search = () => {
     const {products, addToCart, addToLike} = useAppStore()
-    const [productsFiltered, setProductsFilterds] = useState("")
+    const [productsFiltered, setProductsFilterds] = useState<string>("")
     const filter : Product[] = productsFiltered.length >= 3 && products.filter(product => product.name.toLowerCase().includes(productsFiltered.toLowerCase()))
     const display : boolean = filter && filter.length > 0
     const noResult : boolean = filter && filter.length < 1

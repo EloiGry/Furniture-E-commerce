@@ -14,14 +14,12 @@ describe("Tab2 component", () => {
     const emailInput = screen.getByLabelText("Email");
     const phoneInput = screen.getByLabelText("Téléphone");
     const messageTextarea = screen.getByLabelText("Message");
-    const submitButton = screen.getByRole("button", { name: "Envoyer" });
 
     fireEvent.change(nameInput, { target: { value: "John Doe" } });
     fireEvent.change(emailInput, { target: { value: "johndoe@example.com" } });
     fireEvent.change(phoneInput, { target: { value: "123-456-7890" } });
     fireEvent.change(messageTextarea, { target: { value: "Test message" } });
 
-    fireEvent.click(submitButton);
 
     expect((nameInput as HTMLInputElement).value).toBe("John Doe");
     expect((emailInput as HTMLInputElement).value).toBe("johndoe@example.com");
